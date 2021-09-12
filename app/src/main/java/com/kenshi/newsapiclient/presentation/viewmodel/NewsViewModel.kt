@@ -7,10 +7,9 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenshi.newsapiclient.data.model.APIResponse
-import com.kenshi.newsapiclient.data.model.util.Resource
+import com.kenshi.newsapiclient.data.util.Resource
 import com.kenshi.newsapiclient.domain.usecase.GetNewsHeadlinesUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -2,7 +2,7 @@ package com.kenshi.newsapiclient.domain.repository
 
 import com.kenshi.newsapiclient.data.model.APIResponse
 import com.kenshi.newsapiclient.data.model.Article
-import com.kenshi.newsapiclient.data.model.util.Resource
+import com.kenshi.newsapiclient.data.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 //repository interface

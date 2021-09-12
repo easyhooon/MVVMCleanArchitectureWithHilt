@@ -1,4 +1,4 @@
-package com.kenshi.newsapiclient.data.model.util
+package com.kenshi.newsapiclient.data.util
 
 // A generic class that contains data and status about loading this data.
 sealed class Resource<T>(

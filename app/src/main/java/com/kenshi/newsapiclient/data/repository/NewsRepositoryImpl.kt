@@ -2,7 +2,7 @@ package com.kenshi.newsapiclient.data.repository
 
 import com.kenshi.newsapiclient.data.model.APIResponse
 import com.kenshi.newsapiclient.data.model.Article
-import com.kenshi.newsapiclient.data.model.util.Resource
+import com.kenshi.newsapiclient.data.util.Resource
 import com.kenshi.newsapiclient.data.repository.dataSource.NewsRemoteDataSource
 import com.kenshi.newsapiclient.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +23,7 @@ class NewsRepositoryImpl(
 
     //function to input the Response instance of type APIResponse returned from the api
     //and output a Resource instance of type APIResponse
-    private fun responseToResource(response: Response<APIResponse>):Resource<APIResponse> {
+    private fun responseToResource(response: Response<APIResponse>): Resource<APIResponse> {
         if(response.isSuccessful){
             response.body()?.let{ result ->
                 return Resource.Success(result)
