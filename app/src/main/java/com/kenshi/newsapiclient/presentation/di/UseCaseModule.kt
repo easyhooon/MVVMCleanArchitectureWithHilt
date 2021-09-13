@@ -1,9 +1,7 @@
 package com.kenshi.newsapiclient.presentation.di
 
 import com.kenshi.newsapiclient.domain.repository.NewsRepository
-import com.kenshi.newsapiclient.domain.usecase.GetNewsHeadlinesUseCase
-import com.kenshi.newsapiclient.domain.usecase.GetSearchedNewsUseCase
-import com.kenshi.newsapiclient.domain.usecase.SaveNewsUseCase
+import com.kenshi.newsapiclient.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,4 +35,22 @@ class UseCaseModule {
     ): SaveNewsUseCase {
         return SaveNewsUseCase(newsRepository)
     }
+
+    @Singleton
+    @Provides
+    fun providerGetSavedNewsUseCase(
+        newsRepository: NewsRepository
+    ): GetSavedNewsUseCase {
+        return GetSavedNewsUseCase(newsRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun providerDeleteSavedNewsUseCase(
+        newsRepository: NewsRepository
+    ): DeleteSavedNewsUseCase {
+        return DeleteSavedNewsUseCase(newsRepository)
+    }
+
+
 }

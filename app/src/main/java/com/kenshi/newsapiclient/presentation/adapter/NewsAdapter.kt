@@ -50,7 +50,7 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                 tvTitle.text = article.title
                 tvDescription.text = article.description
                 tvPublishedAt.text = article.publishedAt
-                tvSource.text = article.source.name
+                tvSource.text = article.source?.name
 
                 //Article model class should extend Serializable
                 //번들에 담아서 전달하기 위해

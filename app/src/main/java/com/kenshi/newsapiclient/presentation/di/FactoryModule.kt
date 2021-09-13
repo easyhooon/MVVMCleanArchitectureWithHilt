@@ -2,9 +2,7 @@ package com.kenshi.newsapiclient.presentation.di
 
 import android.app.Application
 import com.kenshi.newsapiclient.domain.repository.NewsRepository
-import com.kenshi.newsapiclient.domain.usecase.GetNewsHeadlinesUseCase
-import com.kenshi.newsapiclient.domain.usecase.GetSearchedNewsUseCase
-import com.kenshi.newsapiclient.domain.usecase.SaveNewsUseCase
+import com.kenshi.newsapiclient.domain.usecase.*
 import com.kenshi.newsapiclient.presentation.viewmodel.NewsViewModel
 import com.kenshi.newsapiclient.presentation.viewmodel.NewsViewModelFactory
 import dagger.Module
@@ -23,13 +21,17 @@ class FactoryModule {
         application: Application,
         getNewsHeadlinesUseCase: GetNewsHeadlinesUseCase,
         getSearchedNewsUseCase: GetSearchedNewsUseCase,
-        saveNewsUseCase: SaveNewsUseCase
+        saveNewsUseCase: SaveNewsUseCase,
+        getSavedNewsUseCase: GetSavedNewsUseCase,
+        deleteSavedNewsUseCase: DeleteSavedNewsUseCase
     ): NewsViewModelFactory {
         return NewsViewModelFactory(
             application,
             getNewsHeadlinesUseCase,
             getSearchedNewsUseCase,
-            saveNewsUseCase
+            saveNewsUseCase,
+            getSavedNewsUseCase,
+            deleteSavedNewsUseCase
         )
     }
 }

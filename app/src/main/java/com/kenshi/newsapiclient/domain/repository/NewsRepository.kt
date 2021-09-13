@@ -17,10 +17,10 @@ interface NewsRepository {
 
     //Local
     suspend fun saveNews(article: Article)
-    suspend fun deleteNews(article: Article)
-
     //Get
     fun getSavedNews(): Flow<List<Article>>
+    //Delete
+    suspend fun deleteNews(article: Article)
 
 }
 //we will implement this in the NewsRepositoryImpl class
