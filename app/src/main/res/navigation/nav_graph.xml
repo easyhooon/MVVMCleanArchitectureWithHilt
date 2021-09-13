@@ -33,6 +33,14 @@
         android:id="@+id/infoFragment"
         android:name="com.kenshi.newsapiclient.InfoFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info" >
+
+        <argument
+            android:name="selected_article"
+            app:argType="com.kenshi.newsapiclient.data.model.Article" />
+
+    </fragment>
 
 </navigation>
+
+<!--argument -> 전달받을 객체-->

@@ -19,4 +19,18 @@ interface NewsAPIService {
         @Query("apiKey")
         apiKey:String = BuildConfig.API_KEY
     ): Response<APIResponse>
+
+    //this is the url end point
+    @GET("/v2/top-headlines")
+    //we need to add query parameters
+    suspend fun getSearchedNews(
+        @Query("country")
+        country:String,
+        @Query("q")
+        searchQuery:String,
+        @Query("page")
+        page:Int,
+        @Query("apiKey")
+        apiKey:String = BuildConfig.API_KEY
+    ): Response<APIResponse>
 }

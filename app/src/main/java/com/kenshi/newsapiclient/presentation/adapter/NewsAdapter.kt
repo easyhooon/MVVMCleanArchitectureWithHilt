@@ -46,15 +46,33 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         RecyclerView.ViewHolder(binding.root){
         fun bind(article: Article){
             Log.i("MYTAG","came here ${article.title}")
-            binding.tvTitle.text = article.title
-            binding.tvDescription.text = article.description
-            binding.tvPublishedAt.text = article.publishedAt
-            binding.tvSource.text = article.source.name
+            binding.apply {
+                tvTitle.text = article.title
+                tvDescription.text = article.description
+                tvPublishedAt.text = article.publishedAt
+                tvSource.text = article.source.name
+
+                //Article model class should extend Serializable
+                //번들에 담아서 전달하기 위해
+                root.setOnClickListener {
+                    onItemClickListener?.let {
+                        it(article)
+                    }
+                }
+            }
+
 
             Glide.with(binding.ivArticleImage.context).
             load(article.urlToImage).
             into(binding.ivArticleImage)
+
         }
+    }
+
+    private var onItemClickListener : ((Article) -> Unit) ?= null
+
+    fun setOnItemClickListener(listener: (Article) -> Unit) {
+        onItemClickListener = listener
     }
 
 

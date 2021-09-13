@@ -9,8 +9,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.kenshi.newsapiclient.data.model.APIResponse
+import com.kenshi.newsapiclient.data.model.Article
 import com.kenshi.newsapiclient.data.util.Resource
 import com.kenshi.newsapiclient.domain.usecase.GetNewsHeadlinesUseCase
+import com.kenshi.newsapiclient.domain.usecase.GetSearchedNewsUseCase
+import com.kenshi.newsapiclient.domain.usecase.SaveNewsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -19,12 +22,17 @@ import java.lang.Exception
 //we will get it as a mutable live data of type Resource
 class NewsViewModel(
     private val app: Application,
-    private val getNewsHeadlinesUseCase: GetNewsHeadlinesUseCase
+    private val getNewsHeadlinesUseCase: GetNewsHeadlinesUseCase,
+    private val getSearchedNewsUseCase: GetSearchedNewsUseCase,
+    private val saveNewsUseCase: SaveNewsUseCase
 ): AndroidViewModel(app) {
 
     val newsHeadLines : MutableLiveData<Resource<APIResponse>> = MutableLiveData()
 
-    fun getNewsHeadLines(country:String, page:Int) = viewModelScope.launch(Dispatchers.IO) {
+    fun getNewsHeadLines(
+        country:String
+        , page:Int
+    ) = viewModelScope.launch(Dispatchers.IO) {
 
         newsHeadLines.postValue(Resource.Loading())
         try {
@@ -69,6 +77,38 @@ class NewsViewModel(
             }
         }
         return false
+    }
 
+    //All we need to do is observe this searchedNews mutable live data and pass this list to recyclerview adapter
+
+    //search
+    val searchedNews : MutableLiveData<Resource<APIResponse>> = MutableLiveData()
+
+    fun getSearchedNews(
+        country: String,
+        searchQuery: String,
+        page: Int
+    ) = viewModelScope.launch {
+        searchedNews.postValue(Resource.Loading())
+        //internet availability check
+        try{
+            if(isNetworkAvailable(app)){
+                val response = getSearchedNewsUseCase.execute(
+                    country,
+                    searchQuery,
+                    page
+                )
+                searchedNews.postValue(response)
+            } else {
+                searchedNews.postValue(Resource.Error("No Internet connection"))
+            }
+        } catch (e:Exception) {
+            searchedNews.postValue(Resource.Error(e.message.toString()))
+        }
+    }
+
+    //local data
+    fun saveArticle(article: Article) = viewModelScope.launch {
+        saveNewsUseCase.execute(article)
     }
 }

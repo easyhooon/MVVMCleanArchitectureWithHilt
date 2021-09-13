@@ -1,6 +1,7 @@
 package com.kenshi.newsapiclient.presentation.di
 
 import com.kenshi.newsapiclient.data.repository.NewsRepositoryImpl
+import com.kenshi.newsapiclient.data.repository.dataSource.NewsLocalDataSource
 import com.kenshi.newsapiclient.data.repository.dataSource.NewsRemoteDataSource
 import com.kenshi.newsapiclient.domain.repository.NewsRepository
 import dagger.Module
@@ -16,8 +17,12 @@ class RepositoryModule {
     @Singleton
     @Provides
     fun provideNewsRepository(
-        newsRemoteDataSource: NewsRemoteDataSource
+        newsRemoteDataSource: NewsRemoteDataSource,
+        newsLocalDataSource: NewsLocalDataSource
     ):NewsRepository{
-        return NewsRepositoryImpl(newsRemoteDataSource)
+        return NewsRepositoryImpl(
+            newsRemoteDataSource,
+            newsLocalDataSource
+        )
     }
 }
