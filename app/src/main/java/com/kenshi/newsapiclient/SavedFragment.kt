@@ -42,13 +42,14 @@ class SavedFragment : Fragment() {
             }
             //navigates from newsFragment to the InfoFragment using navController
             findNavController().navigate(
-                R.id.action_newsFragment_to_infoFragment,
+                R.id.action_savedFragment_to_infoFragment,
                 bundle
             )
         }
 
         initRecyclerView()
-        viewModel.getSavedNews().observe(viewLifecycleOwner, {
+
+        viewModel.getSavedNews().observe(viewLifecycleOwner,{
             newsAdapter.differ.submitList(it)
         })
 

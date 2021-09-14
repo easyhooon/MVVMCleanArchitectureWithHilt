@@ -129,7 +129,6 @@ class NewsFragment : Fragment() {
 
     //we need to write codes to set isScrolling as true if the user scrollong the list
     private val onScrollListener = object : RecyclerView.OnScrollListener(){
-
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL)
