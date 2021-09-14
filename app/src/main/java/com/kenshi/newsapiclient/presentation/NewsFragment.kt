@@ -1,4 +1,4 @@
-package com.kenshi.newsapiclient
+package com.kenshi.newsapiclient.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.kenshi.newsapiclient.R
 import com.kenshi.newsapiclient.databinding.FragmentNewsBinding
 import com.kenshi.newsapiclient.presentation.adapter.NewsAdapter
 import com.kenshi.newsapiclient.presentation.viewmodel.NewsViewModel

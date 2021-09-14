@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.kenshi.newsapiclient.NewsFragment"
+        android:name="com.kenshi.newsapiclient.presentation.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
 
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/savedFragment"
-        android:name="com.kenshi.newsapiclient.SavedFragment"
+        android:name="com.kenshi.newsapiclient.presentation.SavedFragment"
         android:label="fragment_saved"
         tools:layout="@layout/fragment_saved">
 
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.kenshi.newsapiclient.InfoFragment"
+        android:name="com.kenshi.newsapiclient.presentation.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" >
 

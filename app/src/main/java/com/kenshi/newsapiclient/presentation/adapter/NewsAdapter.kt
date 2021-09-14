@@ -40,12 +40,11 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         return differ.currentList.size
     }
 
-    inner class NewsViewHolder(
-        val binding: NewsListItemBinding
-    ):
-        RecyclerView.ViewHolder(binding.root){
-        fun bind(article: Article){
+    inner class NewsViewHolder(val binding: NewsListItemBinding): RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(article: Article) {
             Log.i("MYTAG","came here ${article.title}")
+
             binding.apply {
                 tvTitle.text = article.title
                 tvDescription.text = article.description
@@ -60,7 +59,6 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                     }
                 }
             }
-
 
             Glide.with(binding.ivArticleImage.context).
             load(article.urlToImage).

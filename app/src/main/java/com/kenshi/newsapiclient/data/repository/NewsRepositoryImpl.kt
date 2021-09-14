@@ -9,6 +9,8 @@ import com.kenshi.newsapiclient.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
+//Data 단에는 repository 의 구현체가 존재
+
 //we need to add newly created newsLocalDataSource as a constructor parameter
 class NewsRepositoryImpl(
     private val newsRemoteDataSource: NewsRemoteDataSource,

@@ -1,4 +1,4 @@
-package com.kenshi.newsapiclient
+package com.kenshi.newsapiclient.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
+import com.kenshi.newsapiclient.R
 import com.kenshi.newsapiclient.databinding.FragmentInfoBinding
 import com.kenshi.newsapiclient.presentation.viewmodel.NewsViewModel
 

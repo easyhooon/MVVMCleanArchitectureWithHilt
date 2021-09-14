@@ -17,7 +17,7 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideNewsDatabase(app: Application): ArticleDatabase {
-        return Room.databaseBuilder(app,ArticleDatabase::class.java,"news_db")
+        return Room.databaseBuilder(app, ArticleDatabase::class.java,"news_db")
             .fallbackToDestructiveMigration()
         //this will allow room to destructively replace database tables, if migrations
         //that would migrate old database schemas to the latest schema version are not found

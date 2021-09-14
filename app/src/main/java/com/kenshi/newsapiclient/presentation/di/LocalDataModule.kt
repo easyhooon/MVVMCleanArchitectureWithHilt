@@ -12,6 +12,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class LocalDataModule {
+
     @Singleton
     @Provides
     fun provideLocalDataSource(articleDAO: ArticleDAO):NewsLocalDataSource{

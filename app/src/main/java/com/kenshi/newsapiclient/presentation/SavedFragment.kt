@@ -1,6 +1,5 @@
-package com.kenshi.newsapiclient
+package com.kenshi.newsapiclient.presentation
 
-import android.content.ClipData
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.kenshi.newsapiclient.R
 import com.kenshi.newsapiclient.databinding.FragmentSavedBinding
 import com.kenshi.newsapiclient.presentation.adapter.NewsAdapter
 import com.kenshi.newsapiclient.presentation.viewmodel.NewsViewModel

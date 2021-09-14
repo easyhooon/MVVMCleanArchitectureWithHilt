@@ -1,10 +1,11 @@
-package com.kenshi.newsapiclient
+package com.kenshi.newsapiclient.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.kenshi.newsapiclient.R
 import com.kenshi.newsapiclient.databinding.ActivityMainBinding
 import com.kenshi.newsapiclient.presentation.adapter.NewsAdapter
 import com.kenshi.newsapiclient.presentation.viewmodel.NewsViewModel

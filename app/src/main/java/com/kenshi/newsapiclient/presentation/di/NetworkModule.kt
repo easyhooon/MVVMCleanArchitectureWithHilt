@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class NetModule {
+class NetworkModule {
     //create function to provide a retrofit instance
     @Singleton
     @Provides

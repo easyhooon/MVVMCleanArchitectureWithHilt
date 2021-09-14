@@ -25,7 +25,6 @@ class RemoteDataModule {
     }
     //Since we are planning to construct a NewsRemoteDataSourceImpl inside this new function we need
     //to provide that NewsAPIService dependency as a parameter
-
     //So, when we are creating the provider function, we need to define it as a parameter
 
 }
